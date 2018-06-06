@@ -8,9 +8,14 @@ namespace FileIoCSharp
         {
             Console.WriteLine("Hello World!");
 
-            string filePath = Console.ReadLine();
+            string FilePath = Console.ReadLine();
 
-            Console.WriteLine(filePath);
+            Console.WriteLine("Your file path is: ");
+            Console.WriteLine("                  " + FilePath);
+            Console.WriteLine("Press any key to continue...");
+
+            Console.ReadLine();
+
         }
     }
 }
