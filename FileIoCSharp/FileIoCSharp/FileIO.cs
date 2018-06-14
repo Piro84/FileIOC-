@@ -1,22 +1,33 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
+using System.IO;
 
 namespace FileIoCSharp
 {
     class FileIO
     {
-        
-
-        
-        using (StreamReader sr = File.OpenText(FilePath))
+        static void Main(string[] args)
         {
-            string currentLine = "";
-            while ((s = sr.ReadLine()) != null)
+            int sum = 0;
+            using (StreamReader sr = File.OpenText("D:\\repo\\FileIOC-\\FileIOC-\\FileIoCSharp\\FileIoCSharp\\Numbers.txt"))
             {
-                Console.WriteLine(s);
+                if (sr.ToString() != null)
+                {
+
+                    string s = "";
+                    do
+                    {
+                        s = sr.ReadLine();
+                        int x = 0;
+                        Int32.TryParse(s, out x);
+                        sum += x;
+                    } while (s != null);
+                }
+            }
+
+            using (StreamWriter file = new System.IO.StreamWriter("D:\\repo\\FileIOC-\\FileIOC-\\FileIoCSharp\\FileIoCSharp\\Results.txt"))
+            {
+                file.WriteLine(sum);
             }
         }
     }
 }
-
